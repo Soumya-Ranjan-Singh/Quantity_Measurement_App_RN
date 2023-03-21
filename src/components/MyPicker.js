@@ -5,6 +5,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
+import { Color, Font, Margin, Width } from '../utility/Themes';
 
 export const LengthPicker = props => {
   return (
@@ -66,15 +67,15 @@ export const TempPicker = props => {
 
 const styles = StyleSheet.create({
   body_picker: {
-    marginTop: 10,
+    marginTop: Margin.TOP_MARGIN_BTN,
   },
   body_picker_text: {
-    color: 'white',
-    fontSize: 20,
-    marginLeft: 40,
+    color: Color.TEXT_COLOR,
+    fontSize: Font.SECONDARY,
+    marginLeft: Margin.PICKER_HORIZONTAL_MARGIN,
   },
   picker: {
-    width: 200,
+    width: Width.PICKER_WIDTH,
     marginLeft: 'auto',
     marginRight: 'auto',
   },

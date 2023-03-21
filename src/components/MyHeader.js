@@ -1,5 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
+import { Size, Color, Margin, Width, Font, Height } from '../utility/Themes';
+import { stringConstants } from '../utility/constants/String';
 
 const MyHeader = () => {
   return (
@@ -8,7 +10,7 @@ const MyHeader = () => {
         style={styles.header_image}
         source={require('../assets/logo/Applogo.png')}
       />
-      <Text style={styles.header_text}>Quantity Measurement</Text>
+      <Text style={styles.header_text}>{stringConstants.appname}</Text>
     </View>
   );
 };
@@ -18,20 +20,20 @@ export default MyHeader;
 const styles = StyleSheet.create({
   header: {
     alignContent: 'center',
-    flex: 1,
+    flex: Size.CONTAINER_FLEX,
     marginLeft: 'auto',
     marginRight: 'auto',
   },
   header_image: {
-    height: 150,
-    width: 150,
+    height: Height.IMG_HEIGHT,
+    width: Width.IMG_WIDTH,
     marginLeft: 'auto',
     marginRight: 'auto',
-    marginTop: 10,
+    marginTop: Margin.TOP_MARGIN_BTN,
   },
   header_text: {
-    fontSize: 25,
+    fontSize: Font.PRIMARY,
     fontWeight: 'bold',
-    color: 'white',
+    color: Color.TEXT_COLOR,
   },
 });

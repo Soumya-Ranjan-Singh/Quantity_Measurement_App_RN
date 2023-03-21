@@ -1,27 +1,28 @@
 import React from 'react';
 import {
   View,
-  StyleSheet,
   Text,
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
 import MyHeader from '../components/MyHeader';
-import {useOrientation} from '../components/useOrientation';
+import {useOrientation} from '../hooks/useOrientation';
+import { stringConstants } from '../utility/constants/String';
+import pageStyles from '../utility/GlobalStyle';
 
 const Home = ({navigation}) => {
   const getValue = useOrientation();
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={pageStyles.container}>
       <MyHeader />
-      <View style={styles.body}>
-        <View style={[styles.body_btn, {marginTop: getValue(400, 100)}]}>
+      <View style={pageStyles.body}>
+        <View style={[pageStyles.body_btn, {marginTop: getValue(400, 100)}]}>
           <TouchableOpacity
-            style={styles.btn}
+            style={pageStyles.btn}
             onPress={() => {
               navigation.navigate('Converters');
             }}>
-            <Text style={styles.btn_text}>Welcome</Text>
+            <Text style={pageStyles.btn_text}>{stringConstants.welcome}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -30,30 +31,3 @@ const Home = ({navigation}) => {
 };
 
 export default Home;
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'black',
-    flex: 1,
-  },
-  body: {
-    flex: 2,
-  },
-  body_btn: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    marginRight: 40,
-  },
-  btn: {
-    backgroundColor: 'green',
-    width: 150,
-    height: 60,
-    borderRadius: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  btn_text: {
-    color: 'white',
-    fontSize: 25,
-  },
-});

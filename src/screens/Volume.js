@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import MyHeader from '../components/MyHeader';
 import {MyInput} from '../components/MyInput';
 import {VolumePicker} from '../components/MyPicker';
 import {MyButton} from '../components/MyButton';
 import {MyText} from '../components/MyText';
+import pageStyles from '../utility/GlobalStyle';
+import { stringConstants } from '../utility/constants/String';
 
 const Volume = () => {
   const [inputVal, setInputVal] = useState('');
@@ -47,17 +49,17 @@ const Volume = () => {
     })(),
   );
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={pageStyles.container}>
       <MyHeader />
-      <View style={styles.body}>
+      <View style={pageStyles.body}>
         <MyInput value={inputVal} onChangeText={text => setInputVal(text)} />
         <VolumePicker
-          text="From"
+          text={stringConstants.from}
           selectedValue={valueFrom}
           onValueChange={(itemValue, itemIndex) => setValueFrom(itemValue)}
         />
         <VolumePicker
-          text="To"
+          text={stringConstants.to}
           selectedValue={valueTo}
           onValueChange={(itemValue, itemIndex) => setValueTo(itemValue)}
         />
@@ -69,13 +71,3 @@ const Volume = () => {
 };
 
 export default Volume;
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'black',
-    flex: 1,
-  },
-  body: {
-    flex: 2,
-  },
-});

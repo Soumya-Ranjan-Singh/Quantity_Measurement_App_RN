@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import MyHeader from '../components/MyHeader';
 import {MyInput} from '../components/MyInput';
 import {LengthPicker} from '../components/MyPicker';
 import {MyButton} from '../components/MyButton';
 import {MyText} from '../components/MyText';
+import pageStyles from '../utility/GlobalStyle';
+import { stringConstants } from '../utility/constants/String';
 
 const Length = () => {
   const [inputVal, setInputVal] = useState('');
@@ -127,17 +129,17 @@ const Length = () => {
     })(),
   );
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={pageStyles.container}>
       <MyHeader />
-      <View style={styles.body}>
+      <View style={pageStyles.body}>
         <MyInput value={inputVal} onChangeText={text => setInputVal(text)} />
         <LengthPicker
-          text="From"
+          text={stringConstants.from}
           selectedValue={valueFrom}
           onValueChange={(itemValue, itemIndex) => setValueFrom(itemValue)}
         />
         <LengthPicker
-          text="To"
+          text={stringConstants.to}
           selectedValue={valueTo}
           onValueChange={(itemValue, itemIndex) => setValueTo(itemValue)}
         />
@@ -149,13 +151,3 @@ const Length = () => {
 };
 
 export default Length;
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'black',
-    flex: 1,
-  },
-  body: {
-    flex: 2,
-  },
-});

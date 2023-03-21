@@ -1,5 +1,7 @@
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
+import { stringConstants } from '../utility/constants/String';
+import { Border, Color, Font, Margin, Padding, Width } from '../utility/Themes';
 
 export const MyInput = props => {
   return (
@@ -8,7 +10,7 @@ export const MyInput = props => {
         style={styles.input}
         value={props.value}
         onChangeText={props.onChangeText}
-        placeholder="Enter Value Here"
+        placeholder={stringConstants.placeholder}
         keyboardType="numeric"
       />
     </View>
@@ -17,16 +19,16 @@ export const MyInput = props => {
 
 const styles = StyleSheet.create({
   body_input: {
-    margin: 15,
+    margin: Margin.SECONDARY,
     alignItems: 'center',
   },
   input: {
-    fontSize: 20,
-    margin: 10,
-    width: 200,
-    borderColor: '#555',
-    borderWidth: 0.5,
-    paddingLeft: 15,
-    backgroundColor: '#3d3d3d',
+    fontSize: Font.SECONDARY,
+    margin: Margin.TOP_MARGIN_BTN,
+    width: Width.INPUT_WIDTH,
+    borderColor: Color.BORDER,
+    borderWidth: Border.THIN_BORDER,
+    paddingLeft: Padding.INPUT_LEFT_PADDING,
+    backgroundColor: Color.INPUT_BACKGROUND,
   },
 });

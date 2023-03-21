@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+import { Font, Margin } from '../utility/Themes';
 
 export const MyText = props => {
   return (
@@ -15,11 +16,11 @@ export const MyText = props => {
 
 const styles = StyleSheet.create({
   body_text: {
-    margin: 10,
+    margin: Margin.TERNARY,
     alignItems: 'center',
   },
   text: {
-    marginTop: 30,
-    fontSize: 20,
+    marginTop: Margin.TERNARY,
+    fontSize: Font.SECONDARY,
   },
 });
